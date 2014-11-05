@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vidhance Tracker</title>
+	<meta name="author" content="Niklas Borwell"/>
+	<meta name="identification" content=""/>
+	<meta name="classification" content=""/>
+	<meta name="date" content="June, 2013"/>
+	<link href="../../style/document.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<header>Vidhance Track</header>
+<h1>Introduction</h1>
+<p>This document gives some additional details on the Vidhance real-time object tracker, and its access from Vidview.
+</p>
+
+<h1>Vidhance Tracking</h1>
+<p>The Vidhance object tracking is designed to follow objects over consecutive frames. It can automatically determine the correct size and location for moving objects.
+The object tracker can handle several difficulties associated with following objects such as
+<!--The tracking can handle several difficulties associated with following objects such as objects getting partially occluded or completely disappearing for short periods, frames out of focus, objects changing shape, such as a car turning around, and light changes in the scene.-->
+</p>
+  <dl>
+	<dt>Occlusion</dt><dd>If the objects partially or completely disappears for a short period.</dd>
+	<dt>Frames out of focus</dt><dd>If the camera loses focus.</dd>
+	<dt>Shape changes</dt><dd>For instance if the objects turns around.</dd>
+	<dt>Light and color changes</dt><dd>For instance if the object passes through a shadowed area.</dd>
+	</dl>
+</p>
+
+<h1>Modes and adaptability in Vidview</h1>
+<p>
+The object tracker has two different modes of operation.  
+  <dl>
+	<dt>Static</dt><dd>The tracking box size will be constant. Useful if the object stays at a constant distance from the camera and doesn't change shape.</dd>
+	<dt>Adaptive</dt><dd>The tracker will automatically calculate the size of the object being tracked and adapt the tracking box size accordingly. Useful if the object moves back and forth from the camera or change shape.</dd>
+  </dl>
+</p>
+<p>
+<p>
+There are several commands and parameters, accessible through the SDK.
+  <dl>
+	<dt>active</dt><dd>Shows whether the tracker is currently tracking or not.</dd>
+	<dt>bounds</dt><dd>The bounding box of the object being tracked.</dd>
+	<dt>quality</dt><dd>The quality of the current tracking. A lower value could indicate that the object is difficult to follow.</dd>
+	<dt>complexity</dt><dd>Parameter to control how well and for how long the tracker can handle occlusion.</dd>	
+	<dt>defaultsize</dt><dd>The default bounding box start size.</dd>
+	<dt>enabled</dt><dd>Enables or disables using the mouse pointer to start tracking. The left mouse button can be used to start tracking at a certain place using the standard size. The right mouse button can be used to drag a bounding box of desired size for tracking.</dd>
+	<dt>maximumsize</dt><dd>The largest allowed size for the bounding box when using adaptive mode.</dd>
+	<dt>minimumsize</dt><dd>The smallest allowed size for the bounding box when using adaptive mode.</dd>
+	<dt>mode</dt><dd>The tracking operation mode, either static or adaptive.</dd>
+	<dt>start</dt><dd>Starts tracking.</dd>
+	<dt>stop</dt><dd>Stop tracking.</dd>
+  </dl>
+</p>
